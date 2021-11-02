@@ -40,11 +40,15 @@ export default function Home() {
       <h3 className="App-title">Gifs de Pokémons</h3>
 
       <ul>
-      {POPULAR_GIFS.map((popularGif) => (
-        <li key={popularGif}>
-          <Link to={`/search/${popularGif}`}>Gifs de {popularGif}</Link>
-        </li>
-      ))}
+        {POPULAR_GIFS.map( ( popularGif )  => (
+          
+          <li key={popularGif}>
+
+            <Link to={`/search/${popularGif}`}>Gifs de {popularGif}</Link>
+            
+          </li>
+
+        ))}
       </ul>
     </>
   )

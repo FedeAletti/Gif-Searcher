@@ -1,28 +1,37 @@
-import './App.css';
-import {Link, Route} from 'wouter';
+import React from 'react';
+import './App.css'
+import Home from './pages/Home/Home'
+import SearchResults from './pages/SearchResults/Results'
+import Detail from './pages/Detail/Detail'
+import Context from './context/StaticContext';
 
-import { ListOfGifs } from './components/ListOfGifs';
+import { Link, Route } from "wouter"
+import { GifsContextProvider } from './context/GifContext';
 
-
-
-function App() {
-
-
+export default function App() {
   return (
-    <div className="App">
-      <section className="App-content">
-        <h1>App</h1>
-        <Link to="/gif/pikachu">Gifs de Pikachu </Link>
-        <Link to="/gif/charizad">Gifs de Charizad </Link>
-        <Link to="/gif/blastoise">Gifs de Blastoise </Link>
-        <Link to="/gif/psyduck">Gifs de Psyduck</Link>
+    <Context.Provider value={{name: "Fede", surname:"aletti"}}>
+      <div className="App">
+        <section className="App-content">
+          <Link to="/">
+            <img className="App-logo" alt='Giffy logo' src='/logo.png' />
+          </Link>
 
-        <Route          
-          component={ListOfGifs}
-          path="/gif/:keyword"/>
-      </section>
-    </div>
-  );
+          <GifsContextProvider>        
+            <Route
+              component={Home}
+              path="/"
+            />
+            <Route
+              component={SearchResults}
+              path="/search/:keyword"  />
+            <Route
+              component={Detail}
+              path="/gif/:id"
+            />
+           </GifsContextProvider>
+        </section>
+      </div>
+    </Context.Provider>
+  )
 }
-
-export default App;

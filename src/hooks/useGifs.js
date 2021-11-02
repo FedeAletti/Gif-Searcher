@@ -3,7 +3,7 @@ import GifsContext from '../context/GifContext'
 import getGifs from '../services/getGifs'
 
 
-export function useGifs ({ keyword } = { keyword: null }) {
+export function useGifs ({ keyword } = { keyword: "pokemon" }) {
   const [loading, setLoading] = useState(false)
   const {gifs, setGifs} = useContext(GifsContext)
 

@@ -5,9 +5,10 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin: 16px;
     padding: 32px;
-    width: 100%;
+    width: 70%;
 }
 
 .Gif h4{
