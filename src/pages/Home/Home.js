@@ -1,11 +1,9 @@
 import React, { useState } from "react"
 import { useLocation } from "wouter"
-import ListOfGifs from "../../components/ListOfGifs/ListOfGifs"
-import { useGifs } from "../../hooks/useGifs"
-import Category from "../../components/Category/Category"
+import ListOfGifs from "components/ListOfGifs/ListOfGifs"
+import { useGifs } from "hooks/useGifs"
+import TrendingSearches from "components/TrendingSearches/TrendingSearches"
 
-
-const POPULAR_GIFS = ["Pikachu", "Charizard", "Blastoise", "Psyduck"]
 
 export default function Home() {
 
@@ -26,7 +24,7 @@ export default function Home() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-
+        <button>Buscar</button>
         <input placeholder="Search a gif here..." 
         onChange={handleChange} 
         type='text' value={keyword} />
@@ -43,14 +41,7 @@ export default function Home() {
         </div>
 
         <div className="App-category">
-          <Category
-            name="Pokémons"
-            options={POPULAR_GIFS}
-          />
-          <Category
-            name="Mascotas"
-            options={['Perros', 'Gatos', 'Hamster']}
-          />
+          <TrendingSearches/>
         </div>
       </div>
     </>

@@ -4,14 +4,18 @@ import './ListOfGifs.css'
 
 export default function ListOfGifs ({gifs}) {
     const [gifsLoaded, setGifsLoaded] = useState(false)
-
+       
     useEffect(() => {
-        setGifsLoaded(true)
+        setTimeout(() => {
+            setGifsLoaded(true)
+            console.log(gifs);
+        }, 2500)
     }, [gifs])
+    
 
     return <div className='ListOfGifs'>
 
-        {   gifsLoaded && gifs.map((gif) => {
+        {gifsLoaded && gifs.map((gif) => {
             return(
                 <Gif
                     id={gif.id}
@@ -21,5 +25,6 @@ export default function ListOfGifs ({gifs}) {
                 />)}
             )
         }
+
     </div>
 }

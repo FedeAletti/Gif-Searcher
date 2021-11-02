@@ -1,8 +1,7 @@
 import React from 'react'
 import { useLocation } from 'wouter';
-import Gif from '../../components/Gif/Gif';
-// import Context from '../../context/GifContext';
-import useGlobalGifs from '../../hooks/useGlobalGifs';
+import Gif from 'components/Gif/Gif';
+import useGlobalGifs from 'hooks/useGlobalGifs';
 
 
 export default function Detail ({ params }) {

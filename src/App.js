@@ -15,8 +15,9 @@ export default function App() {
         <section className="App-content">
           <Link to="/">
              <figure className="App-logo">
-              <img alt='Giffy logo' src='/logo.png' />
-            </figure>          </Link>
+              <img alt='Giffy logo' src='https://raw.githubusercontent.com/midudev/react-live-coding/f148532045ce45994c3a8303e3edb8ddcf93d598/public/logo.png' />
+            </figure>         
+          </Link>
 
           <GifsContextProvider>        
             <Route
