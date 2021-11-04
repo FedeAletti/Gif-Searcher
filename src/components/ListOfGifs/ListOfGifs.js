@@ -8,7 +8,7 @@ export default function ListOfGifs ({gifs}) {
     useEffect(() => {
         setTimeout(() => {
             setGifsLoaded(true)
-            console.log(gifs);
+            // console.log(gifs);
         }, 2500)
     }, [gifs])
     

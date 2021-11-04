@@ -35,7 +35,7 @@ export function useGifs ({ keyword } = { keyword: "pokemon" }) {
         setGifs(prevGifs => [...prevGifs, ...nextGifs])
         setLoadingNextPage(false)
       })
-  }, [keywordToUse, page, setGifs])
+  }, [keywordToUse, page, setGifs, loading])
 
   return {loading, loadingNextPage, gifs, setPage}
 }
