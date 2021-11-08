@@ -1,27 +1,29 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import './App.css'
-import Home from './pages/Home/Home'
+
 import SearchResults from './pages/SearchResults/Results'
 import Detail from './pages/Detail/Detail'
-import Context from './context/StaticContext';
-
+import Pepito from './context/StaticContext'
+import {GifsContextProvider} from './context/GifContext'
 import { Link, Route } from "wouter"
-import { GifsContextProvider } from './context/GifContext';
+
+const HomePage = React.lazy(() => import('./pages/Home/Home'))
 
 export default function App() {
   return (
-    <Context.Provider value={{name: "Fede", surname:"aletti"}}>
+  <Pepito.Provider value={{name: 'Fede',
+  surname: "Aletti"}}>
       <div className="App">
+        <Suspense fallback={null}>
         <section className="App-content">
           <Link to="/">
-             <figure className="App-logo">
-              <img alt='Giffy logo' src='https://raw.githubusercontent.com/midudev/react-live-coding/f148532045ce45994c3a8303e3edb8ddcf93d598/public/logo.png' />
-            </figure>         
+            <figure className="App-logo">
+              <img alt='Giffy logo' src='/logo.png' />
+            </figure>
           </Link>
-
-          <GifsContextProvider>        
+          <GifsContextProvider>
             <Route
-              component={Home}
+              component={HomePage}
               path="/"
             />
             <Route
@@ -31,9 +33,10 @@ export default function App() {
               component={Detail}
               path="/gif/:id"
             />
-           </GifsContextProvider>
+          </GifsContextProvider>
         </section>
+        </Suspense>
       </div>
-    </Context.Provider>
+    </Pepito.Provider>
   )
 }

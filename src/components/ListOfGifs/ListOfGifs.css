@@ -1,30 +1,31 @@
 :root {
-    --results-columns: 2;
+  --results-columns: 2;
+}
+
+.ListOfGifs {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: masonry;
+  gap: 0 16px;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.ListOfGifs-item {
+  background-color: #eee;
+  display: inline-block;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  :root {
+    --results-columns: 3;
   }
-  
-  .ListOfGifs {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0 1rem;
-    align-items: center;
-    grid-template-rows: masonry;
+}
+
+@media (min-width: 800px) {
+  :root {
+    --results-columns: 4;
   }
-  
-  .ListOfGifs-item {
-    background-color: #eee;
-    display: inline-block;
-    width: 100%;
-  }
-  
-  @media (min-width: 600px) {
-    :root {
-      --results-columns: 3;
-    }
-  }
-  
-  @media (min-width: 800px) {
-    :root {
-      --results-columns: 4;
-    }
-  }
+}
